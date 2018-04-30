@@ -1,5 +1,5 @@
-# 赤外線学習リモコン基盤 ADRSIR 関連スクリプト
-株式会社ビット・トレード・ワンが販売する赤外線学習リモコン基盤 ADRSIR (http://bit-trade-one.co.jp/product/module/adrsir/) を使って赤外線データを扱うための Python スクリプト。
+# 赤外線学習リモコン基板 ADRSIR 関連スクリプト
+株式会社ビット・トレード・ワンが販売する赤外線学習リモコン基板 ADRSIR (http://bit-trade-one.co.jp/product/module/adrsir/) を使って赤外線データを扱うための Python スクリプト。
 
 * adrsir.py
   * ADRSIR の送受信をするためのライブラリ
