@@ -17,7 +17,7 @@ $ cd adrsir
 
 ### 学習させた赤外線データの保存
 ```
-$ ./ir_control.py restore tv
+$ ./ir_control.py save tv
 [*] saved ir_data/tv/ch0.data
 [*] saved ir_data/tv/ch1.data
 [*] saved ir_data/tv/ch2.data
