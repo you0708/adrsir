@@ -6,7 +6,7 @@ import argparse
 import fcntl
 
 BASE_DIR = os.path.dirname(__file__)
-IR_DATA_DIR = os.path.join(BASE_DIR, "ir_data/")
+IR_DATA_DIR = os.path.join(BASE_DIR, 'ir_data/')
 LOCK_FILE = os.path.join(BASE_DIR, 'ir_control.lock')
 
 def save_all(args):
@@ -43,6 +43,9 @@ def restore_all(args):
     print('[*] restored')
 
 def send_data(args):
+    if os.path.isfile(LOCK_FILE) == False:
+        with open(LOCK_FILE, 'w'): pass
+
     ifp = open(LOCK_FILE, 'r')
     fcntl.flock(ifp.fileno(), fcntl.LOCK_EX)
 
