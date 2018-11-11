@@ -50,16 +50,18 @@ def send_data(args):
     fcntl.flock(ifp.fileno(), fcntl.LOCK_EX)
 
     filepath = IR_DATA_DIR + args.FILE
-    print('[*] send {}'.format(filepath))
+    print('[*] send {} {} time(s)'.format(filepath, args.num))
     if not os.path.isfile(filepath):
         print('[!] {} does not exist'.format(filepath))
         return
 
     with open(filepath, 'r') as fp:
         data = fp.read()
-    adrsir.trans(data)
 
-    time.sleep(0.5)
+    for i in range(args.num):
+        adrsir.trans(data)
+        time.sleep(0.5)
+
     fcntl.flock(ifp.fileno(), fcntl.LOCK_UN)
     ifp.close()
 
@@ -74,6 +76,7 @@ def main():
     parser_save.set_defaults(handler=restore_all)
     parser_send = subparsers.add_parser('send', help='Send specified IR data')
     parser_send.add_argument('FILE', action='store', help='Filename to send')
+    parser_send.add_argument('-n', '--num', action='store', dest='num', type=int, default=1, help='Number of times to send')
     parser_send.set_defaults(handler=send_data)
 
     args = parser.parse_args()

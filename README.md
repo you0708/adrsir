@@ -33,8 +33,10 @@ $ ./ir_control.py save tv
 ### 任意の赤外線データの送信
 ```
 $ ./ir_control.py send tv/ch0.data
-[*] send ir_data/tv/ch0.data
+[*] send ir_data/tv/ch0.data 1 time(s)
 ```
+
+`-n` オプションを使用し回数を指定することで、同じデータを複数回連続して送信できる。
 
 ### 保存した赤外線データの書き戻し
 ```
